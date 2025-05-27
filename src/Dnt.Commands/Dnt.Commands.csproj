@@ -1,34 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net472;netcoreapp2.1;netcoreapp2.2;netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net6.0</TargetFrameworks>
     <RootNamespace>Dnt.Commands</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Product>DotNetTools (DNT)</Product>
+	  
+
+	  <Product>DotNetTools (DNT)</Product>
     <Authors>Rico Suter</Authors>
     <Company>Rico Suter</Company>
     <PackageId>DNT.Commands</PackageId>
     <Version>1.7.4</Version>
     <Description>Command line tools to manage .NET Core, Standard and SDK-style projects and solutions.</Description>
     <PackageProjectUrl>https://github.com/RSuter/DNT</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/RSuter/DNT/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageLicense>https://github.com/RSuter/DNT/blob/master/LICENSE.md</PackageLicense>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Fluid.Core" Version="2.2.15" />
-    <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="3.1.29" />
+    <PackageReference Include="Fluid.Core" Version="2.2.16" />
+    <PackageReference Include="Microsoft.Build" Version="17.3.2" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.3.2" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.3.2" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.Build.Runtime" Version="17.3.2" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.3.2" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="6.0.0" />
     <PackageReference Include="Namotion.Reflection.Cecil" Version="2.1.1" />
     <PackageReference Include="NConsole" Version="3.12.6605.26941" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="System.Collections.Immutable" Version="1.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="NuGet.Protocol" Version="6.3.1" />
+    <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
     <PackageReference Include="NuGet.Client" Version="4.2.0" />
-    <PackageReference Include="NuGet.Protocol.Core.v3" Version="4.2.0" />
-    <PackageReference Include="Microsoft.Build.Locator" Version="1.2.6" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp2.1'">
-    <PackageReference Include="Microsoft.Build" Version="16.4.0" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.4.0" ExcludeAssets="runtime" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
-    <PackageReference Include="Microsoft.Build" Version="15.9.20" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.9.20" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.Build.Locator" Version="1.5.5"  />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem.Primitives" Version="4.3.0" />
+	  <PackageReference Include="System.Net.Sockets" Version="4.3.0" />
+	  <PackageReference Include="System.Net.Primitives" Version="4.3.1" />
   </ItemGroup>
 </Project>

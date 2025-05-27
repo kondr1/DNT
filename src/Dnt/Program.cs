@@ -10,6 +10,7 @@ using Dnt.Commands.Infrastructure;
 using Microsoft.Build.Locator;
 
 using NConsole;
+using NuGet.Packaging;
 
 namespace Dnt
 {

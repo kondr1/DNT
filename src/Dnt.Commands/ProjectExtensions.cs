@@ -6,7 +6,9 @@ using System.Linq;
 using System.Xml;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Exceptions;
+using Microsoft.Build.Framework;
 using Microsoft.Build.Locator;
+using Microsoft.Build.Logging;
 using Microsoft.Build.Utilities;
 
 namespace Dnt.Commands
@@ -55,8 +57,14 @@ namespace Dnt.Commands
 
             try
             {
+                var name = Path.GetFileName(projectPath);
+                
+                FileLogger fl = new FileLogger() { Parameters = $"logfile=F:\\DNT\\msbuild-{name}-full.xml", Verbosity = LoggerVerbosity.Diagnostic };
                 var projectCollection = new ProjectCollection(globalProperties);
+                projectCollection.RegisterLogger(fl);
+                var p = new Project(projectPath);
                 var project = projectCollection.LoadProject(projectPath);
+                
 
                 return new ProjectInformation(projectCollection, project, !isSdkStyle, lineEndings);
             }

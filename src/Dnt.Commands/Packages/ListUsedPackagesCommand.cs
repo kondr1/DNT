@@ -145,7 +145,8 @@ namespace Dnt.Commands.Packages
             try
             {
                 var identity = new PackageIdentity(entry.Name, NuGetVersion.Parse(entry.Version));
-                var result = await resource.GetMetadataAsync(identity, new NullLogger(), CancellationToken.None);
+                SourceCacheContext cache = new SourceCacheContext();
+                var result = await resource.GetMetadataAsync(identity, cache, new NullLogger(), CancellationToken.None);
 
                 if (result != null)
                 {

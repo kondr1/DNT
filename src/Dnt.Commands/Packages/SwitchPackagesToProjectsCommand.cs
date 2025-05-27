@@ -105,9 +105,16 @@ namespace Dnt.Commands.Packages
 
             var centralVersioning = project.GetProperty("CentralPackagesFile") != null   // https://github.com/microsoft/MSBuildSdks/tree/master/src/CentralPackageVersions
                 || project.GetPropertyValue("ManagePackageVersionsCentrally") == "true"; // https://github.com/NuGet/Home/wiki/Centrally-managing-NuGet-package-versions
-            
-            foreach (var item in project.Items
-                .Where(i => i.ItemType == "PackageReference" || i.ItemType == "Reference").ToList())
+            var references = project.Items
+                .Where(i => i.ItemType == "PackageReference" || i.ItemType == "Reference").ToList();
+            var references2 = project.ItemsIgnoringCondition
+                .Where(i => i.ItemType == "PackageReference" || i.ItemType == "Reference").ToList();
+            var references3 = project.AllEvaluatedItems
+                .Where(i => i.ItemType == "PackageReference" || i.ItemType == "Reference").ToList();
+
+            var references4 = project.GetItems("PackageReference");
+            var references5 = project.GetItems("Reference");
+            foreach (var item in references)
             {
                 var packageReference = item.EvaluatedInclude.Split(',').First().Trim();
 

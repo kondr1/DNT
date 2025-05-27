@@ -2,8 +2,8 @@
   "profiles": {
     "Dnt.NetFx": {
       "commandName": "Project",
-      "commandLineArgs": "bump-versions patch",
-      "workingDirectory": "C:\\Data\\Projects\\NJsonSchema\\src"
+      "commandLineArgs": "switch-to-projects",
+      "workingDirectory": "F:\\KondrKo\\b2b-submodules"
     }
   }
 }

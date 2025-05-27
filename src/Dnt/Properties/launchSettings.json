@@ -2,8 +2,8 @@
   "profiles": {
     "Dnt": {
       "commandName": "Project",
-      "commandLineArgs": "jsonmark GenerateOpenApiDocs.json",
-      "workingDirectory": ""
+      "commandLineArgs": "switch-to-packages",
+      "workingDirectory": "F:\\KondrKo\\b2b-submodules"
     }
   }
 }
